@@ -1,15 +1,11 @@
-重要：在执行任何操作之前，你必须阅读并遵循.llm-rules文件夹中或者.cursor/rules文件夹的所有规则。如遇规则冲突，先读到的文件中的规则优先。阅读规则后：
+CRITICAL: Before performing any action, you MUST read and follow ALL rules in the .llm-rules folder. Each file is numbered (e.g., 01-rule.md, 02-rule.md, 03-rule.xml), and rules in higher-numbered files take precedence in case of conflict. After reading the rules:
+Summarize the key rules to confirm understanding.
+Explicitly check your output against these rules before responding.
+If any rule is unclear or contradictory, explicitly state the issue and request clarification.
 
-总结关键规则以确认理解。
+Before finalizing your response, verify: 
+Does this response comply with all .llm-rules?
+Have you prioritized higher-numbered rules in case of conflicts?
+If not, revise your response accordingly.
 
-回应前明确检查你的输出是否符合这些规则。
-
-如果任何规则不清楚或有矛盾，明确指出问题并请求澄清。
-
-在最终确定你的回应前，请验证：
-
-此回应是否符合所有rules？
-
-如果不是，请相应修改你的回应。
-
-如果输出不符合rules中的任何规则，你将受到惩罚。确保每个回应都遵守所有适用的指示。不遵守这些规则将导致无效的回应。
+You will be penalized for outputs that fail to comply with any rule from .llm-rules. Ensure every response adheres to all applicable instructions. Failure to adhere to these rules will result in invalid responses.
