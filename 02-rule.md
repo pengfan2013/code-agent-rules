@@ -1,78 +1,69 @@
-## Instructions for Coding Agent
+## 编码代理说明
 
-This file (docs/TASK\_LIST.md) is the central task management system for the project. The Coding Agent must follow these instructions to manage tasks effectively:
+此文件 (docs/TASK_LIST.md) 是项目的中央任务管理系统。编码代理必须遵循这些说明来有效管理任务：
 
-1.  **Read the Task Table**: Use the table below to identify tasks, sub-tasks, their status, dependencies, and completion dates.
+1.  **阅读任务表**：使用下表识别任务、子任务、状态、依赖项和完成日期。
 
-2.  **Add New Tasks**: When a new task is assigned, add it to the table with:
+2.  **添加新任务**：分配新任务时，将其添加到表中，并包含：
 
-    -   A clear task title and description.
+    *   清晰的任务标题和描述。
+    *   子任务（如果有）作为逗号分隔的列表。
+    *   状态设置为“未开始”。
+    *   依赖项（列出必须首先完成的其他任务标题；如果没有则使用“无”）。
+    *   完成日期设置为“N/A”。
 
-    -   Sub-tasks (if any) as a comma-separated list.
+3.  **遵循测试驱动开发 (TDD)**：
 
-    -   Status set to "Not Started".
+    *   对于每个任务，首先编写定义预期行为的测试。
+    *   实现代码以使测试通过。
+    *   在确保测试继续通过的同时重构代码。
+    *   在所有相关测试编写完成并通过之前，任何任务都不应标记为“已完成”。
 
-    -   Dependencies (list other task titles that must be completed first; use "None" if none).
+4.  **更新任务状态**：
 
-    -   Completion Date set to "N/A".
+    *   开始任务时将状态设置为“进行中”。
+    *   仅在通过测试验证任务后才将状态设置为“已完成”。
+    *   将任务标记为已完成时，将完成日期更新为当前日期（格式：YYYY-MM-DD）。
 
-3.  **Follow Test-Driven Development (TDD)**:
+5.  **检查依赖项**：在开始任务之前，确保所有列出的依赖项的状态均为“已完成”。如果依赖项未满足，请优先处理这些任务。
 
-    -   For each task, first write tests that define the expected behavior.
+6.  **提交更改**：更新表后，将更改提交到存储库，并附上类似“使用任务状态更新了 TASK_LIST.md”的消息。
 
-    -   Implement the code to make the tests pass.
+7.  **维护表格式**：保持表结构完整，确保列对齐且条目清晰。
 
-    -   Refactor the code while ensuring tests continue to pass.
+8.  **自主性**：除非任务列表已完成或明确需要澄清，否则应在不寻求用户输入的情况下完成任务。
 
-    -   No task should be marked as "Completed" until all associated tests are written and passing.
+## 测试驱动开发工作流程
 
-4.  **Update Task Status**:
+对于任务列表中的每个任务，请遵循此 TDD 工作流程：
 
-    -   Set Status to "In Progress" when starting a task.
+1.  **首先编写测试**：
+    *   创建定义功能预期行为的测试文件。
+    *   由于实现尚不存在，测试最初应该失败。
+    *   确保测试覆盖所有需求和边缘情况。
 
-    -   Set Status to "Completed" only after verifying the task with passing tests.
+2.  **实现功能**：
+    *   编写使测试通过所需的最少代码。
+    *   首先关注功能，然后进行优化。
+    *   确保实现后所有测试都通过。
 
-    -   Update Completion Date to the current date (format: YYYY-MM-DD) when marking a task as Completed.
+3.  **重构**：
+    *   在保持测试覆盖率的同时提高代码质量。
+    *   消除代码异味和技术债务。
+    *   确保重构后测试仍然通过。
 
-5.  **Check Dependencies**: Before starting a task, ensure all listed dependencies have a Status of "Completed". If dependencies are not met, prioritize those tasks first.
+4.  **文档化**：
+    *   根据需要添加注释和文档。
+    *   更新相关的文档文件。
+    *   在适当的地方包含用法示例。
 
-6.  **Commit Changes**: After updating the table, commit changes to the repository with a message like "Updated TASK\_LIST.md with task status".
+5.  **更新任务状态**：
+    *   编写测试时将任务标记为“进行中”。
+    *   仅当所有测试通过且代码已重构后才标记为“已完成”。
+    *   在任务完成说明中包含测试覆盖率指标。
 
-7.  **Maintain Table Format**: Keep the table structure intact, ensuring columns align and entries are clear.
+此工作流程可确保所有代码都是可测试的，需求得到清晰理解，并且及早发现回归。
 
-8.  **Autonomy**: Work through tasks without seeking user input unless the task list is complete or clarification is explicitly required.
-
-## Test-Driven Development Workflow
-
-For each task in the task list, follow this TDD workflow:
-
-1. **Write Tests First**:
-   - Create test files that define the expected behavior of the feature
-   - Tests should initially fail since the implementation doesn't exist yet
-   - Ensure tests cover all requirements and edge cases
-
-2. **Implement the Feature**:
-   - Write the minimum code necessary to make the tests pass
-   - Focus on functionality first, then optimize
-   - Ensure all tests pass after implementation
-
-3. **Refactor**:
-   - Improve code quality while maintaining test coverage
-   - Eliminate code smells and technical debt
-   - Ensure tests still pass after refactoring
-
-4. **Document**:
-   - Add comments and documentation as needed
-   - Update relevant documentation files
-   - Include examples of usage where appropriate
-
-5. **Update Task Status**:
-   - Mark the task as "In Progress" when writing tests
-   - Only mark as "Completed" when all tests pass and code is refactored
-   - Include test coverage metrics in task completion notes
-
-This workflow ensures that all code is testable, requirements are clearly understood, and regressions are caught early.
-
-## Task Table
-| Task | Sub-Tasks | Status | Dependencies | Completion Date |
+## 任务表
+| 任务 | 子任务 | 状态 | 依赖项 | 完成日期 |
 | ---- | --------- | ------ | ------------ | --------------- |
